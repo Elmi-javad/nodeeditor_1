@@ -6,4 +6,6 @@ add_subdirectory(calculator)
 
 add_subdirectory(images)
 
+add_subdirectory(regex)
+
 add_subdirectory(styles)
