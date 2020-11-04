@@ -12,20 +12,12 @@ unsigned int
 TextDisplayDataModel::
 nPorts(PortType portType) const
 {
-  unsigned int result = 1;
+  unsigned int result;
 
-  switch (portType)
-  {
-    case PortType::In:
-      result = 1;
-      break;
-
-    case PortType::Out:
-      result = 0;
-
-    default:
-      break;
-  }
+  if (portType == PortType::In)
+    result = 2;
+  else
+    result = 0;
 
   return result;
 }

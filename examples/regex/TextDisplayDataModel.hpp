@@ -55,24 +55,40 @@ public:
   outData(PortIndex port) override;
 
   void
-  setInData(std::shared_ptr<NodeData> data, int) override
+  setInData(std::shared_ptr<NodeData> data, PortIndex portIndex) override
   {
     auto textData = std::dynamic_pointer_cast<TextData>(data);
 
     if (textData)
     {
-		auto inputText = textData->text();
-
-		QRegExp rx("(\\d+)");
-		QStringList OutputList;
-		int pos = 0;
-
-		while ((pos = rx.indexIn(inputText, pos)) != -1) {
-			OutputList << rx.cap(1);
-			pos += rx.matchedLength();
+		if (portIndex == 0)
+		{
+			_inputText = textData->text();
+		}
+		else
+		{
+			_regex = textData->text();
+			if (_regex.isEmpty())
+			{
+				_regex = "No regex";
+			}
 		}
 
-      _label->setText(OutputList.join(", "));
+		QRegExp rxPattern(_regex);
+		QStringList outputList;
+		int pos = 0;
+		while ((pos = rxPattern.indexIn(_inputText, pos)) != -1) {
+			outputList << rxPattern.cap(1);
+			pos += rxPattern.matchedLength();
+		}
+		if (outputList.isEmpty())
+		{
+			_label->setText("No match thing or invalid regex!");
+		}
+		else
+		{
+			_label->setText(outputList.join(", "));
+		}
     }
     else
     {
@@ -88,4 +104,6 @@ public:
 private:
 
   QLabel * _label;
+  QString _inputText = "In the name of Allah";
+  QString _regex = "(.)";
 };
