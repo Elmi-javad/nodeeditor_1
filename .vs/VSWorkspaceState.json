@@ -1,8 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\examples"
+    "\\examples\\regex"
   ],
-  "SelectedNode": "\\examples\\regex",
+  "SelectedNode": "\\CMakeLists.txt",
   "PreviewInSolutionExplorer": false
 }

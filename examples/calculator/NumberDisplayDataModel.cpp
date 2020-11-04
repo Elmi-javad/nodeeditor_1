@@ -60,7 +60,8 @@ setInData(std::shared_ptr<NodeData> data, int)
   {
     modelValidationState = NodeValidationState::Valid;
     modelValidationError = QString();
-    _label->setText(numberData->numberAsText());
+	_label->setText(numberData->numberAsText());
+	//_label->setText("A");
   }
   else
   {

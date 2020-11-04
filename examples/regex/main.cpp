@@ -4,20 +4,23 @@
 
 #include <QtWidgets/QApplication>
 
-#include "ImageShowModel.hpp"
-#include "ImageLoaderModel.hpp"
+#include <nodes/DataModelRegistry>
+
+#include "TextSourceDataModel.hpp"
+#include "TextDisplayDataModel.hpp"
 
 using QtNodes::DataModelRegistry;
-using QtNodes::FlowScene;
 using QtNodes::FlowView;
+using QtNodes::FlowScene;
 
 static std::shared_ptr<DataModelRegistry>
 registerDataModels()
 {
   auto ret = std::make_shared<DataModelRegistry>();
-  ret->registerModel<ImageShowModel>();
 
-  ret->registerModel<ImageLoaderModel>();
+  ret->registerModel<TextSourceDataModel>();
+
+  ret->registerModel<TextDisplayDataModel>();
 
   return ret;
 }
@@ -33,7 +36,7 @@ main(int argc, char *argv[])
   FlowView view(&scene);
 
   view.setWindowTitle("Node-based flow editor");
-  view.resize(80, 60);
+  view.resize(800, 600);
   view.show();
 
   return app.exec();
