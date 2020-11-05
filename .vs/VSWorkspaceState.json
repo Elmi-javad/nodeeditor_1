@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\examples",
+    "\\examples\\images",
     "\\examples\\regex"
   ],
-  "SelectedNode": "\\CMakeLists.txt",
+  "SelectedNode": "\\examples\\regex\\PixmapData.hpp",
   "PreviewInSolutionExplorer": false
 }

@@ -6,8 +6,10 @@
 
 #include <nodes/DataModelRegistry>
 
-#include "TextSourceDataModel.hpp"
-#include "TextDisplayDataModel.hpp"
+#include "RegexSourceDataModel.hpp"
+#include "ResultDisplayDataModel.hpp"
+
+#include "TextFileLoaderModel.hpp"
 
 using QtNodes::DataModelRegistry;
 using QtNodes::FlowView;
@@ -18,9 +20,11 @@ registerDataModels()
 {
   auto ret = std::make_shared<DataModelRegistry>();
 
-  ret->registerModel<TextSourceDataModel>();
+  ret->registerModel<RegexSourceDataModel>();
 
-  ret->registerModel<TextDisplayDataModel>();
+  ret->registerModel<ResultDisplayDataModel>();
+
+  ret->registerModel<TextFileLoaderModel>();
 
   return ret;
 }
