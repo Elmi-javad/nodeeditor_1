@@ -4,7 +4,7 @@ ResultDisplayDataModel::
 ResultDisplayDataModel()
   : _label(new QLabel("Resulting Text")), _regex("([A-z])")
 {
-  _label->setMargin(3);
+	_label->setMargin(3);
 }
 
 
